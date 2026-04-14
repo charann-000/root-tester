@@ -1,4 +1,4 @@
-# METATRON - Web-Based AI Penetration Testing Platform
+# Root-tester - Web-Based AI Penetration Testing Platform
 
 A full-stack, web-based penetration testing platform inspired by the open-source CLI tool at github.com/sooryathejas/METATRON but rebuilt as a modern web application.
 
