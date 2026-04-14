@@ -6,8 +6,8 @@ class Settings(BaseSettings):
     DB_PORT: int = 3306
     DB_USER: str = "metatron"
     DB_PASSWORD: str = "metatron_pass"
-    DB_NAME: str = "metatron_db"
-    DB_TYPE: str = "mariadb"  # mariadb or postgresql
+    DB_NAME: str = "metatron.db"
+    DB_TYPE: str = "sqlite"  # sqlite, mariadb, or postgresql
     
     SECRET_KEY: str = "your-super-secret-key-change-in-production"
     ALGORITHM: str = "HS256"
@@ -24,7 +24,9 @@ class Settings(BaseSettings):
     
     @property
     def DATABASE_URL(self) -> str:
-        if self.DB_TYPE == "postgresql":
+        if self.DB_TYPE == "sqlite":
+            return f"sqlite:///./{self.DB_NAME}"
+        elif self.DB_TYPE == "postgresql":
             return f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         return f"mysql+pymysql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
     
