@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     DB_USER: str = "metatron"
     DB_PASSWORD: str = "metatron_pass"
     DB_NAME: str = "metatron_db"
+    DB_TYPE: str = "mariadb"  # mariadb or postgresql
     
     SECRET_KEY: str = "your-super-secret-key-change-in-production"
     ALGORITHM: str = "HS256"
@@ -23,6 +24,8 @@ class Settings(BaseSettings):
     
     @property
     def DATABASE_URL(self) -> str:
+        if self.DB_TYPE == "postgresql":
+            return f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         return f"mysql+pymysql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
     
     @property
