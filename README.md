@@ -1,4 +1,4 @@
-# Root-tester - Web-Based AI Penetration Testing Platform
+# Nuetron - Web-Based AI Penetration Testing Platform
 
 A full-stack, web-based penetration testing platform inspired by the open-source CLI tool at github.com/sooryathejas/METATRON but rebuilt as a modern web application.
 
@@ -14,7 +14,7 @@ A full-stack, web-based penetration testing platform inspired by the open-source
 ## Project Structure
 
 ```
-metatron-web/
+nuetron-web/
 ├── backend/
 │   ├── main.py              # FastAPI entry point
 │   ├── config.py            # Configuration settings
@@ -67,7 +67,7 @@ metatron-web/
 ### Backend Setup
 
 ```bash
-cd metatron-web/backend
+cd nuetron-web/backend
 
 # Create virtual environment
 python -m venv venv
@@ -90,7 +90,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ### Frontend Setup
 
 ```bash
-cd metatron-web/frontend
+cd nuetron-web/frontend
 
 # Install dependencies
 npm install
@@ -158,4 +158,4 @@ CORS_ORIGINS=http://localhost:5173,http://localhost:3000
 
 ## Disclaimer
 
-METATRON is for authorized penetration testing only. Only scan systems you own or have explicit written permission to test. Unauthorized scanning is illegal.
+NUETRON is for authorized penetration testing only. Only scan systems you own or have explicit written permission to test. Unauthorized scanning is illegal.
